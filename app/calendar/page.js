@@ -4,6 +4,8 @@ import styled from "styled-components";
 
 // 日期 date.getDate()
 // 月份 date.getMonth() (month-1)
+// 星期 date.getDay()
+// 年份 date.getFullYear()
 
 const fillInCalendarData = (date) => {
   const getLastMonDate = (num) =>
@@ -42,19 +44,10 @@ const fillInCalendarData = (date) => {
 
 export default function Calendar() {
   const date = new Date();
-  console.log(date.getDate());
-  console.log(date.getMonth());
-  console.log(date.getFullYear());
-  console.log("星期", date.getDay());
 
-  const dates = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
   const weekDateMap = ["Sun", "Mon", "Tue", "Wen", "Thus", "Fri", "Sat"];
 
   const dateStr = fillInCalendarData(date);
-  // console.log(dateStr)
-  // for (let i = 0; i < dates; i++) {}
-  console.log({ dateStr });
-  // const dates=date.getDate(date.getFullYear(),date.getMonth())
 
   return (
     <Wrapper>
