@@ -59,6 +59,73 @@ const Contaner = styled.div`
 //   myTask.run(task);
 // }
 
+// 練習遞迴
+
+const test = {
+  test1: {
+    test2: {
+      test3: {
+        // ...
+      },
+    },
+  },
+};
+
+const recursionObj = (test) => {
+  const getObjKeys = Object.keys(test) || [];
+  if (getObjKeys.length === 0) {
+    return {};
+  } else {
+    let newObj = {};
+    getObjKeys.map((item) => {
+      newObj = {
+        ...recursionObj(test[item]),
+        [item]: test[item],
+      };
+    });
+    newObj = {
+      ...newObj,
+    };
+    return newObj;
+  }
+  //
+};
+console.log("recursionObj", recursionObj(test));
+
+function sumRecursion(num) {
+  if (num === 0) {
+    return 1;
+  } else {
+    const Sn = sumRecursion(num - 1) + num;
+    return Sn;
+  }
+}
+
+console.log("遞迴加法", sumRecursion(2));
+
+function factorial(num) {
+  // const Fn = num * factorial(num - 1)
+
+  // num -= 1
+  // console.log(num)
+  // return Fn
+  // if (num === 0) {
+  //   return Fn
+  // }
+
+  console.log("num ", num);
+  if (num <= 1) {
+    console.log("num <= 1 ");
+
+    return 1;
+  } else {
+    const Fn = num * factorial(num - 1);
+    console.log("num in F", num, "Fn", Fn);
+    return Fn;
+  }
+}
+console.log(factorial(2));
+
 export default function Page() {
   return (
     <>
